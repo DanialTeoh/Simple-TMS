@@ -1,0 +1,28 @@
+{{ form_start(form) }}
+<section class="section">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <br>
+                {{ form_row(form.username) }}
+                {{ form_row(form.password) }}
+                {{ form_row(form.isVerified) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.picture) }}
+
+                {%  if 'public' in app.user.permission %}
+                    {{ form_widget(form.permission, { 'attr': { 'style': 'display: none;' } }) }}
+                    {# ni untuk bagi publc takleh tukar jadi admin / nak buat form some user tak nampak #}
+                {% endif %}
+
+                {%  if 'admin' in app.user.permission %}
+                    {{ form_row(form.permission) }}
+                {% endif %}
+
+
+                <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+            </div>
+        </div>
+    </div>
+</section>
+{{ form_end(form) }}

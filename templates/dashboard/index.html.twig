@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div class="col-xxl-4 col-md-6">
+        <div class="card info-card revenue-card">
+
+            <div class="card-body">
+                <h5 class="card-title">Total Tasks Available</h5>
+
+                <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi-list-task"></i>
+                    </div>
+                    <div class="ps-3">
+                        <h6><strong>{{ totalTasks }}</strong></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ {%if 'admin' in app.user.permission  %}
+    <div class="col-xxl-4 col-md-6">
+        <div class="card info-card revenue-card">
+
+            <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+
+                <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-person-arms-up"></i>
+                    </div>
+                    <div class="ps-3">
+                        <h6><strong>{{ totalUser }}</strong></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{#     <div class="col-xxl-4 col-md-6">#}
+{#         <div class="card info-card revenue-card">#}
+
+{#             <div class="card-body">#}
+{#                 <h5 class="card-title">Total Rujukan/h5>#}
+
+{#                 <div class="d-flex align-items-center">#}
+{#                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">#}
+{#                         <i class="bi bi-person-arms-up"></i>#}
+{#                     </div>#}
+{#                     <div class="ps-3">#}
+{#                         <h6><strong>{{ totalRujukan }}</strong></h6>#}
+{#                     </div>#}
+{#                 </div>#}
+{#             </div>#}
+{#         </div>#}
+{#     </div>#}
+
+    {% endif %}
+
+{% endblock %}

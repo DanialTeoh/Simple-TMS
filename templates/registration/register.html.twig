@@ -1,0 +1,110 @@
+{# templates/registration/register.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8">
+    <title>DeskApp - Registration</title>
+
+    <!-- Site favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('tms/vendors/images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('tms/vendors/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('tms/vendors/images/favicon-16x16.png') }}">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('tms/vendors/styles/core.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('tms/vendors/styles/icon-font.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('tms/vendors/styles/style.css') }}">
+</head>
+
+<body class="login-page">
+<div class="login-header box-shadow">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="brand-logo">
+            <a href="{{ path('homepage') }}">
+                <img src="{{ asset('tms/vendors/images/deskapp-logo.svg') }}" alt="Logo">
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-lg-7">
+                <img src="{{ asset('tms/vendors/images/register-page-img.png') }}" alt="Register Image">
+            </div>
+            <div class="col-md-6 col-lg-5">
+                <div class="login-box bg-white box-shadow border-radius-10">
+                    <div class="login-title">
+                        <h2 class="text-center text-primary">Register</h2>
+                    </div>
+
+                    {{ form_start(registrationForm) }}
+
+                    <!-- Email Field -->
+                    <div class="input-group custom">
+                        {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Email'}}) }}
+                        <div class="input-group-append custom">
+                            <span class="input-group-text"><i class="dw dw-email"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Username Field -->
+                    <div class="input-group custom">
+                        {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Username'}}) }}
+                        <div class="input-group-append custom">
+                            <span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="input-group custom">
+                        {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control form-control-lg', 'placeholder': 'Password'}}) }}
+                        <div class="input-group-append custom">
+                            <span class="input-group-text"><i class="dw dw-padlock1"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Agree to Terms -->
+                    <div class="form-group d-flex align-items-center">
+                        <label class="form-check-label" style="margin-left: 8px; font-size: 1.2rem;">
+                        {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                        </label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group mb-0">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                            </div>
+                            <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
+                            <div class="input-group mb-0">
+                                <a class="btn btn-outline-primary btn-lg btn-block" href="{{ path('app_login') }}">Already have an account? Login</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript files -->
+<script src="{{ asset('tms/vendors/scripts/core.js') }}"></script>
+<script src="{{ asset('tms/vendors/scripts/script.min.js') }}"></script>
+<script src="{{ asset('tms/vendors/scripts/process.js') }}"></script>
+<script src="{{ asset('tms/vendors/scripts/layout-settings.js') }}"></script>
+</body>
+
+</html>

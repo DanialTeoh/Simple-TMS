@@ -1,0 +1,62 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        {%  if 'public' in app.user.permission %}  {# ni untuk differentiate between admin dengan user biasa #}
+
+        <li class="nav-item">
+            <a class="nav-link " href="{{ path('app_dashboard') }}">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ path('app_task_index') }}">
+                <i class="bi bi-list-task"></i>
+                <span>Tasks</span>
+            </a>
+        </li>
+
+        {% endif %}
+
+        {%  if 'admin' in app.user.permission %}
+            <li class="nav-item">
+                <a class="nav-link " href="{{ path('app_dashboard') }}">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ path('app_task_index') }}">
+                    <i class="bi bi-list-task"></i>
+                    <span>Tasks</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ path('app_user_index') }}">
+                    <i class="bi bi-person"></i>
+                    <span>Users</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ path('app_flag_index') }}">
+                    <i class="bi bi-flag"></i>
+                    <span>Flag</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ path('app_rujukan_index') }}">
+                    <i class="bi bi-receipt"></i>
+                    <span>Rujukan</span>
+                </a>
+            </li>
+        {% endif %}
+
+
+    </ul>
+
+</aside><!-- End Sidebar-->
